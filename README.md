@@ -33,7 +33,7 @@ The main features of LPC2148 include the following.
 
 ## Procedure:
  1. click on STM 32 CUBE IDE, the following screen will appear 
- ![image](https://user-images.githubusercontent.com/36288975/226189166-ac10578c-c059-40e7-8b80-9f84f64bf088.png)
+<img height=20% width=49% src="https://user-images.githubusercontent.com/36288975/226189166-ac10578c-c059-40e7-8b80-9f84f64bf088.png">
 
  2. click on FILE, click on new stm 32 project 
  ![image](https://user-images.githubusercontent.com/36288975/226189215-2d13ebfb-507f-44fc-b772-02232e97c0e3.png)
@@ -43,7 +43,7 @@ The main features of LPC2148 include the following.
 ![image](https://user-images.githubusercontent.com/36288975/226189280-ed5dcf1d-dd8d-43ae-815d-491085f4863b.png)
 
 4.select the program name 
-![image](https://user-images.githubusercontent.com/36288975/226189316-09832a30-4d1a-4d4f-b8ad-2dc28f137711.png)
+<img height=20% width=49% src="https://user-images.githubusercontent.com/36288975/226189316-09832a30-4d1a-4d4f-b8ad-2dc28f137711.png">
 
 
 5. corresponding ioc file will be generated automatically 
@@ -82,39 +82,29 @@ The main features of LPC2148 include the following.
 Developed By : s vikash
 Reg No : 212222240115
 ```
-```c
+
+```
 #include "main.h"
-
-
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-
 int main(void)
 {
-  
   HAL_Init();
-
-  
   SystemClock_Config();
-
   MX_GPIO_Init();
   while (1)
   {
 	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
-	  HAL_Delay(7000);
+	  HAL_Delay(1000);
 	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
-	  HAL_Delay(7000);
+	  HAL_Delay(1000);2
   }
- 
 }
 void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
-
-  
   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE2);
- 
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_MSI;
   RCC_OscInitStruct.MSIState = RCC_MSI_ON;
   RCC_OscInitStruct.MSICalibrationValue = RCC_MSICALIBRATION_DEFAULT;
@@ -124,7 +114,6 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
- 
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK3|RCC_CLOCKTYPE_HCLK
                               |RCC_CLOCKTYPE_SYSCLK|RCC_CLOCKTYPE_PCLK1
                               |RCC_CLOCKTYPE_PCLK2;
@@ -139,19 +128,16 @@ void SystemClock_Config(void)
     Error_Handler();
   }
 }
-
 static void MX_GPIO_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
   __HAL_RCC_GPIOA_CLK_ENABLE();
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
-
   GPIO_InitStruct.Pin = GPIO_PIN_0;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
 }
 void Error_Handler(void)
 {
@@ -159,27 +145,23 @@ void Error_Handler(void)
   while (1)
   {
   }
-  
 }
-
 #ifdef  USE_FULL_ASSERT
 void assert_failed(uint8_t *file, uint32_t line)
 {
-  
 }
+#endif
 ```
 
 
 
-
 ## Output  :
-off case:
  
- ![WhatsApp Image 2023-08-17 at 21 36 00](https://github.com/vikashsenthil21/EXPERIMENT-01-INTERFACING-A-DIGITAL-OUTPUT-TO-IOT-DEVELOPMENT-BOARD-/assets/119433834/1152e0c4-5249-4711-ac8d-b0da73840a87)
 
- on case:
+<img height=20% width=49% src="https://github.com/vikashsenthil21/EXPERIMENT-01-INTERFACING-A-DIGITAL-OUTPUT-TO-IOT-DEVELOPMENT-BOARD-/assets/119433834/a0199c35-025d-45ef-b0b8-dba66cb0fe6e">
+<img height=20% width=49% src="https://github.com/vikashsenthil21/EXPERIMENT-01-INTERFACING-A-DIGITAL-OUTPUT-TO-IOT-DEVELOPMENT-BOARD-/assets/119433834/ee47fe8d-65f7-4e4c-8b34-4fb1f765717e">
+
+
  
- ![WhatsApp Image 2023-08-17 at 21 37 21](https://github.com/vikashsenthil21/EXPERIMENT-01-INTERFACING-A-DIGITAL-OUTPUT-TO-IOT-DEVELOPMENT-BOARD-/assets/119433834/ef209a28-09af-4b77-aa6d-0f0beed27be6)
-
 ## Result :
 Interfacing a digital output with ARM microcontroller based IOT development is executed and the results are verified.
